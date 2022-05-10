@@ -1,0 +1,19 @@
+{
+    "name": "mame/poo-php",
+    "require": {
+        "composer-plugin-api": "^1.1"
+    },
+    "authors": [
+        {
+            "name": "mame10",
+            "email": "gmalick540@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\Models\\": "models/",
+            "App\\Config\\": "config/",
+            "App\\Core\\": "core/"
+        }
+    }
+}
