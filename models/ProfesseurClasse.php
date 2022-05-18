@@ -1,8 +1,9 @@
 <?php
+namespace App\Model;
 class ProfesseurClasse{
   
     public function __construct(){
-
+        self::$table = 'professeur_classe';
     }
 
     public function classes():array
@@ -10,7 +11,7 @@ class ProfesseurClasse{
         return [];
     }
 
-    public function professeur():array
+    public function professeurs():array
     {
         return [];
     }

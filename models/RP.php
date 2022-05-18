@@ -1,13 +1,19 @@
 <?php
-namespace App\Models;
+namespace App\Model;
 use App\Config\Constantes;
 class RP extends User{
-    private string $grade;
+    
 
     public function __construct()
     {
-        $this->role=Constantes::ROLE_RP;
+        parent::$role=Constantes::ROLE_RP;
     }
+
+    public static function findAll():array{
+        //$sql="select * from personne where role like {self::$role}";
+        $sql="select * from ".self::$table." where role like `".self::$role."`";
+        return [];
+    } 
 
     public function classes():array
     {

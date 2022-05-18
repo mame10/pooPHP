@@ -1,15 +1,17 @@
 <?php
+namespace App\Models;
+use App\Core\Model;
 abstract class Personne extends Model{
     protected int $id;
     protected string $nomComplet;
-    protected string $role;
+    protected static string $role;
     protected static int $nbrPersonne;
-
     public function __construct() 
     {
-
+        parent::$table='personne';
     }
-
+      
+    
     /**
      * Get the value of id
      */ 
@@ -18,6 +20,10 @@ abstract class Personne extends Model{
         return $this->id;
     }
 
+    public static function findAll():array{
+        $sql="select * from ".parent::table()." where role like ?"; 
+        return parent::findBy($sql,[get_called_class()::getRole()]);
+    }
     /**
      * Set the value of id
      *
@@ -72,9 +78,9 @@ abstract class Personne extends Model{
     /**
      * Get the value of role
      */ 
-    public function getRole():string
+    public static function getRole():string
     {
-        return $this->role;
+        return self::$role='';
     }
 
     /**
